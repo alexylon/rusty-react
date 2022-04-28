@@ -1,1 +1,1 @@
-# rusty-react
+# Rusty React using Wasm
