@@ -1,12 +1,19 @@
 use std::str::FromStr;
 use wasm_bindgen::prelude::*;
 use serde::{Serialize, Deserialize};
-use serde_json::{json, Value};
+use std::sync::atomic::{AtomicI32, Ordering};
+
+static SUM: AtomicI32 = AtomicI32::new(0);
+
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Numbers {
     num1: String,
     num2: String,
+}
+
+struct AppState {
+    sum: i32,
 }
 
 #[wasm_bindgen]
@@ -31,6 +38,13 @@ pub fn sum_two_ints(json_string: &str) -> i32 {
     let num1 = i32::from_str(&*numbers.num1).unwrap_or(0);
     let num2 = i32::from_str(&*numbers.num2).unwrap_or(0);
     println!("num1: {}, num2: {}", num1, num2);
+    SUM.store(num1 + num2, Ordering::Relaxed);
+
     num1 + num2
+}
+
+#[wasm_bindgen]
+pub fn get_sum() -> i32 {
+    SUM.load(Ordering::Relaxed)
 }
 

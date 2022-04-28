@@ -10,6 +10,7 @@ wasm.then(m => {
         const [a, setA] = useState(0);
         const [b, setB] = useState(0);
         const [sum, setSum] = useState(0);
+        const [stateSum, setStateSum] = useState(0);
         const handleChange = (e) => {
             setName(e.target.value);
         }
@@ -27,6 +28,9 @@ wasm.then(m => {
             let numbers = JSON.stringify({num1: a, num2: b});
             console.log(numbers);
             setSum(m.sum_two_ints(numbers));
+        }
+        const getSum = () => {
+            setStateSum(m.get_sum());
         }
 
         return (
@@ -62,6 +66,14 @@ wasm.then(m => {
                 <Box marginTop={2}>
                     <Button variant="contained" onClick={() => handleSum()}>Sum numbers</Button>
                 </Box>
+                <Stack spacing={2} direction="row">
+                    <Box marginTop={2}>
+                        <Button variant="contained" onClick={() => getSum()}>Get sum</Button>
+                    </Box>
+                    <Box>
+                        <h3>Sum from Rust state: {stateSum}</h3>
+                    </Box>
+                </Stack>
             </Box>
         );
     };
