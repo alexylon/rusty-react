@@ -36,9 +36,7 @@ wasm.then(m => {
         return (
             <Box
                 component="form"
-                sx={{
-                    '& > :not(style)': {m: 1, width: '250ch'},
-                }}
+
                 noValidate
                 autoComplete="off"
                 marginLeft={5}
@@ -63,17 +61,19 @@ wasm.then(m => {
                         <h3>Sum from Rust: {sum}</h3>
                     </Box>
                 </Stack>
-                <Box marginTop={2}>
+                <Box marginTop={1}>
                     <Button variant="contained" onClick={() => handleSum()}>Sum numbers</Button>
                 </Box>
-                <Stack spacing={2} direction="row">
-                    <Box marginTop={2}>
-                        <Button variant="contained" onClick={() => getSum()}>Get sum</Button>
-                    </Box>
-                    <Box>
-                        <h3>Sum from Rust state: {stateSum}</h3>
-                    </Box>
-                </Stack>
+                <Box marginTop={6}>
+                    <Stack spacing={2} direction="row">
+                        <Box marginTop={1}>
+                            <Button variant="contained" onClick={() => getSum()}>Get sum</Button>
+                        </Box>
+                        <Box marginTop={0}>
+                            <h3>Sum from Rust state: {stateSum}</h3>
+                        </Box>
+                    </Stack>
+                </Box>
             </Box>
         );
     };
