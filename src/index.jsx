@@ -24,7 +24,9 @@ wasm.then(m => {
             setB(e.target.value);
         }
         const handleSum = () => {
-            setSum(m.sum_two_ints(a, b));
+            let numbers = JSON.stringify({num1: a, num2: b});
+            console.log(numbers);
+            setSum(m.sum_two_ints(numbers));
         }
 
         return (

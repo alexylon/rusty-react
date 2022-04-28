@@ -3,7 +3,7 @@
 Update node modules:
 `npm install`
 
-Build Rust code:
+Build Rust to Wasm:
 `npm run build`
 
 Run React app:
