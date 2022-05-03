@@ -10,7 +10,7 @@
     "dev": "webpack server"
   },
   "keywords": [],
-  "author": "Josh Finnie <josh@jfin.us",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "@emotion/react": "^11.9.0",
