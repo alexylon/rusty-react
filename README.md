@@ -1,9 +1,9 @@
 # Rusty React using Wasm
 
-## Prerequisites
-- Install wasm-pack: see https://rustwasm.github.io/wasm-pack/installer/
+## Install dependencies
+- `wasm-pack`: see https://rustwasm.github.io/wasm-pack/installer/
 
-- Install wasm-bindgen Command Line: `cargo install -f wasm-bindgen-cli`
+- `wasm-bindgen` Command Line: `cargo install -f wasm-bindgen-cli`
 
 
 ## Build and run
